@@ -1,0 +1,22 @@
+{
+  "name": "constructorhangman",
+  "version": "1.0.0",
+  "description": "Hangman Game using Constructors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alizenguyen/ConstructorHangman.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alizenguyen/ConstructorHangman/issues"
+  },
+  "homepage": "https://github.com/alizenguyen/ConstructorHangman#readme",
+  "dependencies": {
+    "inquirer": "^4.0.1"
+  }
+}
