@@ -1,3 +1,5 @@
+//Runs the game
+
 var wordBank = require("./wordbank.js");
 
 console.log(wordBank);
