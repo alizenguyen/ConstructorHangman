@@ -21,7 +21,7 @@ var wordLogic = function(currentWord) {
 
         for (var i = 0; i < this.letterArray.length; i++) {
             if (this.leterArray[i].showLetter === true) {
-                letterRight++;
+                letterRight += 1;
             }
             else {
                 return false;
@@ -42,7 +42,7 @@ var wordLogic = function(currentWord) {
         var numberFound = 0;
         for (var i = 0; i < this.letterArray.length; i++) {
             if (this.letterArray[i].wordLetter === guessPrompt) {
-                this.lets[i].showLetter = true;
+                this.letterArray[i].showLetter = true;
                 numberFound += 1;
             };
        };
@@ -50,8 +50,13 @@ var wordLogic = function(currentWord) {
        return numberFound;
     };
     
+    //puts word and letter guessed together
     this.wordGuessResult = function () {
-
+        var line = '';
+        for (var i = 0; i < this.letterArray.length; i++) {
+            line += this.letterArray[i].letterAppear();
+       };
+       return line;
     };
 };
 

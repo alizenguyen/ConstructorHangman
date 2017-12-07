@@ -17,7 +17,7 @@ var Letter = function(guess) {
         if (this.showLetter === true) {
             return this.wordLetter;
         } else {
-            return '_';
+            return ' _ ';
         }
     };
 };

@@ -32,18 +32,43 @@ var hangman = {
         ]).then(function(answer) {
             this.lettersGuessed += answer.guessPrompt;
             console.log('You Guessed: ' + answer.guessPrompt);
-            console.log(answer.guessPrompt);
+            console.log(this.lettersGuessed);
             
+            console.log('-------------------------------------------------------------------');
             var guessResult = referred.wordChosen.letterFound(answer.guessPrompt);
             console.log(guessResult);
+            console.log('-------------------------------------------------------------------');
 
             if (guessResult === 0) {
                 console.log('Nice Try. Guess again!')
                 referred.guessesLeft -= 1; 
                 console.log(referred.guessesLeft);
-            } else {
+            } else if (guessResult !== 0) {
                 console.log('Atta Boy!')
+
+                if (referred.wordChosen.correct === true) {
+                    console.log('You Won!!!');
+                    return; 
+                }; 
+            };
+
+            console.log('-------------------------------------------------------------------');
+            console.log('\n');
+            console.log('Guesses remaining: ', referred.guessesLeft);
+            console.log('\n');
+            console.log('Result: ' + referred.wordChosen.wordGuessResult());
+            console.log('\n');
+            console.log('Letters you have guessed: ' + lettersGuessed);
+            console.log('\n');
+            console.log('-------------------------------------------------------------------');
+
+            if ((referred.guessesLeft > 0) && (referred.wordChosen.correct === false)){
+		    	referred.promptPlayer();
+            } else if (referred.guessesLeft === 0) {
+                console.log("Enough Guesses. I'm getting Bored. The word was " + referred.wordChosen + ". Next time!")
+                console.log('-------------------------------------------------------------------');
             }
+
         });
     },
 };
