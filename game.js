@@ -25,17 +25,22 @@ var hangman = {
         //splits word into an array of letters
         this.wordChosen.splitWord();
         //beins prompting player
+        
+        console.log('Result: ' + this.wordChosen.wordGuessResult());
+        console.log('\n');
+
         this.promptPlayer();
     },
     promptPlayer: function() {
         var referred = this; 
+
         inquirer.prompt([
             {    
                 name: "guessPrompt",
                 message: "Guess a letter!"
             }
         ]).then(function(answer) {
-            this.lettersGuessed += answer.guessPrompt;
+            this.lettersGuessed += answer.guessPrompt + ", ";
             console.log('You Guessed: ' + answer.guessPrompt);
             console.log(this.lettersGuessed);
             
@@ -54,7 +59,11 @@ var hangman = {
 
                 if (referred.wordChosen.checkWordGuess()) {
                     console.log('-------------------------------------------------------------------');
+                    console.log('\n');
+                    console.log('Answer: ' + referred.wordChosen.word)
                     console.log('YOU WON! I NEVER DOUBTED YOU.');
+                    console.log('Thanks for playing!');
+                    console.log('\n');
                     console.log('-------------------------------------------------------------------');
                     console.log('-------------------------------------------------------------------');
                     return; 

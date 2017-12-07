@@ -12,10 +12,10 @@ var wordLogic = function(currentWord) {
         for (var i = 0; i < this.word.length; i++) {
             this.letterArray.push(new letter.Letter(this.word[i]));
         };
-        console.log(this.letterArray);
+        //console.log(this.letterArray);
     };
 
-    //Check if word is guessed
+    //Check if word is guessed to end game
     this.checkWordGuess = function() {
         var letterRight = 0;
 
