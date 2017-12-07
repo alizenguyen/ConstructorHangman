@@ -8,9 +8,9 @@ var wordLogic = function(currentWord) {
     //function to break word into letter
     this.splitWord = function() {
         for (var i = 0; i < this.word.length; i++) {
-            this.letterArray.push(this.word[i]);
-            console.log(this.letterArray);
+            this.letterArray.push(new letter.Letter(this.word[i]));
         };
+        console.log(this.letterArray);
     };
 
     //Check if letter is correct 
@@ -20,6 +20,11 @@ var wordLogic = function(currentWord) {
                 this.correct = true;
             };
         };
+    };
+
+    //Check if word is guessed
+    this.checkWordGuess = function() {
+
     };
 };
 

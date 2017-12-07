@@ -1,6 +1,6 @@
 //Should eiteher display an underlying character, or a blank placeholer (such as an underscore)
 
-var letter = function(guess) {
+var Letter = function(guess) {
     //letter guessed
     this.wordLetter = guess;
     //whether or not letter has been guessed
@@ -23,7 +23,4 @@ var letter = function(guess) {
     };
 };
 
-var newLetter = new letter(' ');
-console.log(newLetter);
-
-module.exports = letter;
+exports.Letter = Letter;
