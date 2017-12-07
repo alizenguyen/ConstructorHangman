@@ -15,7 +15,7 @@ var Letter = function(guess) {
 
         //shows blank or letter
         if (this.showLetter === true) {
-            return this.wordLetter;
+            return ' ' + this.wordLetter + ' ';
         } else {
             return ' _ ';
         }
