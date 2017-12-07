@@ -26,6 +26,7 @@ var hangman = {
         this.wordChosen.splitWord();
         //beins prompting player
         
+        console.log(this.lettersGuessed);
         console.log('Result: ' + this.wordChosen.wordGuessResult());
         console.log('\n');
 
@@ -41,7 +42,7 @@ var hangman = {
             }
         ]).then(function(answer) {
 
-            this.lettersGuessed += answer.guessPrompt + ", ";
+            this.lettersGuessed += answer.guessPrompt.toString() + ", ";
             //console.log('You Guessed: ' + answer.guessPrompt);
             //console.log(this.lettersGuessed);
             
@@ -77,7 +78,7 @@ var hangman = {
             console.log('\n');
             console.log('Result: ' + referred.wordChosen.wordGuessResult());
             console.log('\n');
-            console.log('Letters you have guessed: ' + lettersGuessed);
+            console.log('Letters you have guessed: ' + this.lettersGuessed);
             console.log('\n');
             console.log('-------------------------------------------------------------------');
 
