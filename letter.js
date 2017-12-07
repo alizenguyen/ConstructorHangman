@@ -11,14 +11,13 @@ var Letter = function(guess) {
         if (this.wordLetter === ' ') {
             this.showLetter = true;
             return ' ';
-            console.log(this.showLetter);
         }
 
         //shows blank or letter
-        if (this.showLetter === false) {
-            return '_';
-        } else {
+        if (this.showLetter === true) {
             return this.wordLetter;
+        } else {
+            return '_';
         }
     };
 };
