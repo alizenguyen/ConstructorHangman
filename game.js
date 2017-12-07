@@ -8,7 +8,7 @@ var inquirer = require('inquirer');
 console.log('\n');
 console.log('********************************************************************');
 console.log('\n');
-console.log('WELCOME TO AVENGER HANGMAN! GUESS YOUR THE RIGHT AVENGER SUPERHERO!');
+console.log('WELCOME TO AVENGER HANGMAN! GUESS THE RIGHT AVENGER SUPERHERO!');
 console.log('\n');
 console.log('********************************************************************');
 console.log('\n');
