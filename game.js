@@ -5,9 +5,13 @@ var wordLogic = require('./word.js');
 var letter = require('./letter.js');
 var inquirer = require('inquirer');
 
-console.log('-------------------------------------------------------------------');
+console.log('\n');
+console.log('********************************************************************');
+console.log('\n');
 console.log('WELCOME TO AVENGER HANGMAN! GUESS YOUR THE RIGHT AVENGER SUPERHERO!');
-console.log('-------------------------------------------------------------------');
+console.log('\n');
+console.log('********************************************************************');
+console.log('\n');
 
 var hangman = {
     guessesLeft: 10,
@@ -17,6 +21,7 @@ var hangman = {
         this.guessesLeft = 10;
         //pulls word from wordbank
         this.wordChosen = new wordLogic.wordLogic(wordBank);
+            //console.log(this.wordChosen);
         //splits word into an array of letters
         this.wordChosen.splitWord();
         //beins prompting player
@@ -36,7 +41,7 @@ var hangman = {
             
             console.log('-------------------------------------------------------------------');
             var guessResult = referred.wordChosen.letterFound(answer.guessPrompt);
-            console.log(guessResult);
+            //console.log(guessResult);
             console.log('-------------------------------------------------------------------');
 
             if (guessResult === 0) {
@@ -44,10 +49,14 @@ var hangman = {
                 referred.guessesLeft -= 1; 
                 console.log(referred.guessesLeft);
             } else if (guessResult !== 0) {
-                console.log('Atta Boy!')
+                console.log('Atta Boy/Girl! You guessed correct!')
+                console.log('-------------------------------------------------------------------');
 
-                if (referred.wordChosen.correct === true) {
-                    console.log('You Won!!!');
+                if (referred.wordChosen.checkWordGuess()) {
+                    console.log('-------------------------------------------------------------------');
+                    console.log('YOU WON! I NEVER DOUBTED YOU.');
+                    console.log('-------------------------------------------------------------------');
+                    console.log('-------------------------------------------------------------------');
                     return; 
                 }; 
             };
@@ -65,10 +74,12 @@ var hangman = {
             if ((referred.guessesLeft > 0) && (referred.wordChosen.correct === false)){
 		    	referred.promptPlayer();
             } else if (referred.guessesLeft === 0) {
-                console.log("Enough Guesses. I'm getting Bored. The word was " + referred.wordChosen + ". Next time!")
+                console.log("Enough Guesses. I'm getting Bored. The word was '" + referred.wordChosen.word + "'. Next time!")
+                console.log('-------------------------------------------------------------------');
+            } else {
+                console.log(referred.wordChosen.wordGuessResult())
                 console.log('-------------------------------------------------------------------');
             }
-
         });
     },
 };

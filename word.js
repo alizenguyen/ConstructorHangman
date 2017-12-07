@@ -20,11 +20,8 @@ var wordLogic = function(currentWord) {
         var letterRight = 0;
 
         for (var i = 0; i < this.letterArray.length; i++) {
-            if (this.leterArray[i].showLetter === true) {
+            if (this.letterArray[i].showLetter === true) {
                 letterRight += 1;
-            }
-            else {
-                return false;
             }
         };
 
