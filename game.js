@@ -42,6 +42,7 @@ var hangman = {
             }
         ]).then(function(answer) {
 
+            //console.log(this.lettersGuessed);
             this.lettersGuessed += answer.guessPrompt.toString() + ", ";
             //console.log('You Guessed: ' + answer.guessPrompt);
             //console.log(this.lettersGuessed);
@@ -85,7 +86,9 @@ var hangman = {
             if ((referred.guessesLeft > 0) && (referred.wordChosen.correct === false)){
 		    	referred.promptPlayer();
             } else if (referred.guessesLeft === 0) {
-                console.log("Enough Guesses. I'm getting Bored. The word was '" + referred.wordChosen.word + "'. Next time!")
+                console.log('\n');
+                console.log("I'm getting Bored. The word was '" + referred.wordChosen.word + "'. Next time!");
+                console.log('\n');
                 console.log('-------------------------------------------------------------------');
             } else {
                 console.log(referred.wordChosen.wordGuessResult())
