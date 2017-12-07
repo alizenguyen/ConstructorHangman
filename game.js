@@ -22,10 +22,29 @@ var hangman = {
         //beins prompting player
         this.promptPlayer();
     },
-    promptPlayer = function() {
+    promptPlayer: function() {
+        var referred = this; 
         inquirer.prompt([
+            {    
+                name: "guessPrompt",
+                message: "Guess a letter!"
+            }
+        ]).then(function(answer) {
+            this.lettersGuessed += answer.guessPrompt;
+            console.log('You Guessed: ' + answer.guessPrompt);
+            console.log(answer.guessPrompt);
+            
+            var guessResult = referred.wordChosen.letterFound(answer.guessPrompt);
+            console.log(guessResult);
 
-        ])
+            if (guessResult === 0) {
+                console.log('Nice Try. Guess again!')
+                referred.guessesLeft -= 1; 
+                console.log(referred.guessesLeft);
+            } else {
+                console.log('Atta Boy!')
+            }
+        });
     },
 };
 

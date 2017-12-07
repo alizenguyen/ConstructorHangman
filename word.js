@@ -38,13 +38,21 @@ var wordLogic = function(currentWord) {
     };
 
     //Checks if letter is found and turns showLetter in letter constructor to true
-    this.letterFound = function (guess) {
-        for (var i = 0; i < this.lets.length; i++) {
-            if (this.letterArray[i].wordLetter === guess) {
-                 this.lets[i].showLetter = true;
-            }
-       }
-    };   
+    this.letterFound = function (guessPrompt) {
+        var numberFound = 0;
+        for (var i = 0; i < this.letterArray.length; i++) {
+            if (this.letterArray[i].wordLetter === guessPrompt) {
+                this.lets[i].showLetter = true;
+                numberFound += 1;
+            };
+       };
+       //returns the number of letters found
+       return numberFound;
+    };
+    
+    this.wordGuessResult = function () {
+
+    };
 };
 
 exports.wordLogic = wordLogic;
