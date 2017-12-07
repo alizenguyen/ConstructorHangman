@@ -11,6 +11,7 @@ var letter = function(guess) {
         if (this.wordLetter === ' ') {
             this.showLetter = true;
             return ' ';
+            console.log(this.showLetter);
         }
 
         //shows blank or letter
@@ -21,3 +22,8 @@ var letter = function(guess) {
         }
     };
 };
+
+var newLetter = new letter(' ');
+console.log(newLetter);
+
+module.exports = letter;

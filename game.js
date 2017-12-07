@@ -1,6 +1,7 @@
 //Runs the game
 
 var wordBank = require("./wordbank.js");
+var guessesLeft = 10;
 
 console.log(wordBank);
 
