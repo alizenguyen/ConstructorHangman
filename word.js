@@ -47,7 +47,4 @@ var wordLogic = function(currentWord) {
     };   
 };
 
-var batman = new wordLogic('batman');
-console.log(batman);
-
-batman.splitWord();
+exports.wordLogic = wordLogic;
