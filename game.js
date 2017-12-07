@@ -40,9 +40,10 @@ var hangman = {
                 message: "Guess a letter!"
             }
         ]).then(function(answer) {
+
             this.lettersGuessed += answer.guessPrompt + ", ";
-            console.log('You Guessed: ' + answer.guessPrompt);
-            console.log(this.lettersGuessed);
+            //console.log('You Guessed: ' + answer.guessPrompt);
+            //console.log(this.lettersGuessed);
             
             console.log('-------------------------------------------------------------------');
             var guessResult = referred.wordChosen.letterFound(answer.guessPrompt);
@@ -89,6 +90,7 @@ var hangman = {
                 console.log(referred.wordChosen.wordGuessResult())
                 console.log('-------------------------------------------------------------------');
             }
+
         });
     },
 };
