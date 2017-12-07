@@ -37,7 +37,14 @@ var wordLogic = function(currentWord) {
         return this.correct;
     };
 
-    //START HERE AGAIN -_-    
+    //Checks if letter is found and turns showLetter in letter constructor to true
+    this.letterFound = function (guess) {
+        for (var i = 0; i < this.lets.length; i++) {
+            if (this.letterArray[i].wordLetter === guess) {
+                 this.lets[i].showLetter = true;
+            }
+       }
+    };   
 };
 
 var batman = new wordLogic('batman');
