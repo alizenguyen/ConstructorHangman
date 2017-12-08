@@ -24,7 +24,6 @@ var hangman = {
         this.wordChosen.splitWord();
         //beins prompting player
         
-        console.log(this.lettersGuessed);
         console.log('Result: ' + this.wordChosen.wordGuessResult());
         console.log('\n');
 
