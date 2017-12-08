@@ -15,13 +15,11 @@ console.log('\n');
 
 var hangman = {
     guessesLeft: 10,
-    lettersGuessed: '',
     wordChosen: null,
     startGame: function(word) {
         this.guessesLeft = 10;
         //pulls word from wordbank
         this.wordChosen = new wordLogic.wordLogic(wordBank);
-            //console.log(this.wordChosen);
         //splits word into an array of letters
         this.wordChosen.splitWord();
         //beins prompting player
@@ -34,7 +32,7 @@ var hangman = {
     },
     promptPlayer: function() {
         var referred = this; 
-
+        
         inquirer.prompt([
             {    
                 name: "guessPrompt",
@@ -42,10 +40,11 @@ var hangman = {
             }
         ]).then(function(answer) {
 
-            //console.log(this.lettersGuessed);
-            this.lettersGuessed += answer.guessPrompt.toString() + ", ";
-            //console.log('You Guessed: ' + answer.guessPrompt);
-            //console.log(this.lettersGuessed);
+            if (this.lettersGuessed === undefined) {
+                this.lettersGuessed = answer.guessPrompt + ", ";
+            } else {
+                this.lettersGuessed += answer.guessPrompt.toString() + ", ";
+            };
             
             console.log('-------------------------------------------------------------------');
             var guessResult = referred.wordChosen.letterFound(answer.guessPrompt);
@@ -55,7 +54,6 @@ var hangman = {
             if (guessResult === 0) {
                 console.log('Nice Try. Guess again!')
                 referred.guessesLeft -= 1; 
-                console.log(referred.guessesLeft);
             } else if (guessResult !== 0) {
                 console.log('Atta Boy/Girl! You guessed correct!')
                 console.log('-------------------------------------------------------------------');
